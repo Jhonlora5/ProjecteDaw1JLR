@@ -3,6 +3,7 @@ package controlador;
 import model.CarretCompra;
 import model.Magatzem;
 import model.TiquetCompra;
+
 import vista.VistaPrincipal;
 
 import java.util.ArrayList;

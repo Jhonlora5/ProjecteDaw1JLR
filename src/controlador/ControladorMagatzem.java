@@ -3,6 +3,7 @@ package controlador;
 
 import model.Magatzem;
 import model.Producte;
+
 import excepcions.ProducteDuplicatException;
 
 import java.util.List;
