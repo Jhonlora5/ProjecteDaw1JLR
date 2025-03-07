@@ -1,8 +1,8 @@
-// ControladorCarret.java
 package controlador;
 
 import model.CarretCompra;
 import model.Producte;
+
 import java.util.List;
 
 /**
