@@ -1,6 +1,8 @@
 package model;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.Map;
 
 /**
@@ -13,16 +15,42 @@ public class CarretCompra {
         this.productes = new HashMap<>();
     }
 
-    public void afegirProducte(Producte producte) {
-        productes.put(producte.getCodiBarres(), productes.getOrDefault(producte.getCodiBarres(), 0) + 1);
+    /**
+     * Afegeix un producte al carret de la compra
+     * @param producte el producte a afegir
+     * @param quantitat quantitat del producte
+     */
+    public void afegirProducte(Producte producte, int quantitat) {
+        if (producte == null || quantitat <= 0) {
+            System.out.println("Error: Producte no vàlid o quantitat incorrecta.");
+            return;
+        }
+        productes.put(producte.getCodiBarres(),
+                productes.getOrDefault(producte.getCodiBarres(), 0) + quantitat);
     }
 
+    /**
+     * Buida tots els productes del carret
+     */
     public void buidarCarret() {
         productes.clear();
     }
 
-    public Map<String, Integer> getProductes() {
-        return productes;
+    /**
+     * Retorna la llista de productes del carret amb els objectes reals del magatzem
+     * @param magatzem magatzem on es troben els productes
+     * @return llista de productes al carret
+     */
+    public List<Producte> obtenirProductes(Magatzem magatzem) {
+        List<Producte> llistaProductes = new ArrayList<>();
+        for (String codiBarres : productes.keySet()) {
+            Producte producte = magatzem.getProductePerCodi(codiBarres);
+            if (producte != null) {
+                llistaProductes.add(producte);
+            }
+        }
+        return llistaProductes;
     }
 }
+
 

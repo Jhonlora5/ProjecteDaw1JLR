@@ -3,7 +3,7 @@ package controlador;
 import model.CarretCompra;
 import model.Producte;
 
-import java.util.List;
+import java.util.Map;
 
 /**
  * Controlador per gestionar el carret de la compra
@@ -28,8 +28,8 @@ public class ControladorCarret {
      * Mostra el contingut del carret
      * @return llista de productes al carret
      */
-    public List<Producte> mostrarCarret() {
-        return carret.obtenirProductes();
+    public Map<String, Integer> mostrarCarret() {
+        return carret.getProductes();
     }
 
     /**

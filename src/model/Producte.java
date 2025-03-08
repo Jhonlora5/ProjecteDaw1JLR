@@ -29,12 +29,22 @@ public abstract class Producte {
         return codiBarres;
     }
 
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setPreu(double preu) {
+        this.preu = preu;
+    }
+
+    public void setCodiBarres(String codiBarres) {
+        this.codiBarres = codiBarres;
+    }
 
     public abstract double calcularPreu();
 
     @Override
     public String toString() {
-
         return "Nom: " + nom + ", Preu: " + preu + ", Codi de barres: " + codiBarres;
     }
 }

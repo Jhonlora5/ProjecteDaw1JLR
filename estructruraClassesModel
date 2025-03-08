@@ -1,0 +1,14 @@
+Producte: Nom, Preu, codiBarres.
+    |
+    |-> Alimentacio
+    |
+    |-> Textil
+    |
+    |-> Electronica
+    |
+
+CarretCompra: Amb un hashMap afegirem per crear una llista de productes de clau valor.
+
+Magatzem: Serà un array list en el que guardarem els productes.
+
+TiquetCompra

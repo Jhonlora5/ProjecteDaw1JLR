@@ -15,6 +15,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         Magatzem magatzem = new Magatzem();
+        magatzem.inicialitzarProductes(); //Cridem a la classe encarregada d'afegir productes.
         CarretCompra carret = new CarretCompra();
         List<TiquetCompra> historialTiquets = new ArrayList<>();
 
