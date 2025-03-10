@@ -26,7 +26,7 @@ ControladorMagatzem
 
         Funcions/Constructors:
         Encarregada d'afegir si escau productes al magatzem.
-            Afegit un trow amb una excepció propia per si el producte ja està introduït.
+            Afegit un trow amb una excepció pròpia per si el producte ja està introduït.
 
 Main
     Classe encarregada de l'execució del programa.
@@ -34,37 +34,33 @@ Main
 
 Model:
 Classe privades
-Producte: Nom(String), Preu(double), codiBarres(String).
+Producte: variables :Nom(String), Preu(double), codiBarres(String).
     |
-    |-> Alimentació: dataCaducitat(Localdate)
+    |-> Alimentació: variables: dataCaducitat(Localdate)
     |       Funció calcularPreu que fara el calcul revisant la data de caducitat del producte.
     |
     |
-    |-> Tèxtil: composicioTextil(String)
+    |-> Tèxtil: variables: composicioTextil(String)
     |       Funció calcularPreu retorna preu de l'article.
     |
     |
-    |
-    |-> Electronica: diesGarantia(int)
+    |-> Electronica: variables: diesGarantia(int)
     |       Funció calcularPreu retorna preu de l'article calculat per dies de garantía.
-    |
-    |
-    |
-    |-> Magatzem: MAX_PRODUCTES(int), MAX_PER_TIPUS(int), alimentacioList(list), textilList(list),electronicaList(list).
-    |       Funció afegirProducte encarregada de revisar si el producte existeix,
-    |         si supera els 100 articles, endreçar per els diferents ordres, i funció per afegir productes al arrencar el programa.
-    |
-    |
-    |
-    |
-    |-> CarretCompra
-    |
-    |-> TiquetCompra
-    |
-    |-> Electronica
 
-CarretCompra: Amb un hashMap afegirem per crear una llista de productes de clau valor.
 
-Magatzem: Serà un array list en el que guardarem els productes.
+TiquetCompra: dataCompra(LocalDate), productes(HashMap), total(double).
 
-TiquetCompra
+CarretCompra: productes(HashMap).
+           Funció afegirProducte encarregat d'afegir el producte al nostre carret.
+           Funció buidaCarret encarregada de buidar tot el carro.
+           Funció obtenirProductes retorna una llista de productes per el seu codi de barres.
+
+Magatzem: MAX_PRODUCTES(int), MAX_PER_TIPUS(int), alimentacioList(list), textilList(list),electronicaList(list).
+           Funció afegirProducte encarregada de revisar si el producte existeix,
+              si supera els 100 articles, endreçar per els diferents ordres, i funció per afegir productes al arrencar el programa.
+vista:
+VistaPrincipal:
+Aquesta vista conté el menú corresponent a l'inici del programa en mode case.
+VistaMagatzem:
+VistaCompra:
+VistaCarret:

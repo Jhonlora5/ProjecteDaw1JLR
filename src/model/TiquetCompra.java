@@ -15,7 +15,6 @@ public class TiquetCompra {
         this.dataCompra = LocalDate.now();
         this.productes = productes;
         this.total = total;
-
     }
 
     @Override
