@@ -32,6 +32,6 @@ public class ControladorMagatzem {
      * @return llista de productes al magatzem
      */
     public List<Producte> mostrarMagatzem() {
-        return magatzem.obtenirProductes();
+        return magatzem.getTotsElsProductes();
     }
 }

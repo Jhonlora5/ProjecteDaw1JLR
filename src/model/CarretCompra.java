@@ -30,6 +30,14 @@ public class CarretCompra {
     }
 
     /**
+     * Retorna el mapa de productes amb les quantitats
+     * @return mapa de productes
+     */
+    public Map<String, Integer> getProductes() {
+        return productes;
+    }
+
+    /**
      * Buida tots els productes del carret
      */
     public void buidarCarret() {
