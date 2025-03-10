@@ -10,6 +10,7 @@ import model.Magatzem;
 public class VistaCompra {
     private ControladorCompra controladorCompra;
     private Magatzem magatzem;
+
     public VistaCompra(ControladorCompra controladorCompra, Magatzem magatzem) {
         this.controladorCompra = controladorCompra;
         this.magatzem = magatzem;

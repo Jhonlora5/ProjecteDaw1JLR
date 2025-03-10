@@ -26,6 +26,7 @@ public class ControladorCarret {
      * @param quantitat quantitat del producte
      */
     public void afegirProducteAlCarret(Producte producte, int quantitat) {
+
         carret.afegirProducte(producte, quantitat);
     }
 
@@ -51,6 +52,7 @@ public class ControladorCarret {
      * Buida el carret de la compra
      */
     public void buidarCarret() {
+
         carret.buidarCarret();
     }
 }

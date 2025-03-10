@@ -12,6 +12,7 @@ public class Textil extends Producte {
     }
 
     public String getComposicioTextil() {
+
         return composicioTextil;
     }
 

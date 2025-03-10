@@ -23,7 +23,8 @@ public class ControladorMagatzem {
      * @param producte el producte a afegir
      * @throws ProducteDuplicatException si el producte ja existeix
      */
-    public void afegirProducteAlMagatzem(Producte producte) throws ProducteDuplicatException {
+    public void afegirProducteAlMagatzem(Producte producte)
+            throws ProducteDuplicatException {
         magatzem.afegirProducte(producte);
     }
 

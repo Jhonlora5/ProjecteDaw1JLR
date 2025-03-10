@@ -12,6 +12,7 @@ public class Electronica extends Producte {
     }
 
     public int getDiesGarantia() {
+
         return diesGarantia;
     }
 

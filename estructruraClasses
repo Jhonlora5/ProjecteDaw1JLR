@@ -1,0 +1,70 @@
+Controlador:
+
+Controlador Carret
+    Classe publica ControladorCarret:
+        variables:
+        private CarretCompra carret
+        private Magatzem magatzem
+
+            Funcions/Constructors:
+            Encarregades de mostrar, esborrar, afegir al carret.
+
+ControladorCompra
+    Classe publica ControladorCompra:
+        variables:
+        private CarretCompra carret
+        private Magatzem magatzem
+        private List<TiquetCompra> = historialCompra:(Encarregat de guardar la llista de tiquets generats)
+
+            Funcions:
+            Encarregada de generar el tiquet amb els productes corresponents i la suma total.
+
+ControladorMagatzem
+    Classe publica ControladorMagatzem:
+        variables:
+        private Magatzem magatzem
+
+        Funcions/Constructors:
+        Encarregada d'afegir si escau productes al magatzem.
+            Afegit un trow amb una excepció propia per si el producte ja està introduït.
+
+Main
+    Classe encarregada de l'execució del programa.
+
+
+Model:
+Classe privades
+Producte: Nom(String), Preu(double), codiBarres(String).
+    |
+    |-> Alimentació: dataCaducitat(Localdate)
+    |       Funció calcularPreu que fara el calcul revisant la data de caducitat del producte.
+    |
+    |
+    |-> Tèxtil: composicioTextil(String)
+    |       Funció calcularPreu retorna preu de l'article.
+    |
+    |
+    |
+    |-> Electronica: diesGarantia(int)
+    |       Funció calcularPreu retorna preu de l'article calculat per dies de garantía.
+    |
+    |
+    |
+    |-> Magatzem: MAX_PRODUCTES(int), MAX_PER_TIPUS(int), alimentacioList(list), textilList(list),electronicaList(list).
+    |       Funció afegirProducte encarregada de revisar si el producte existeix,
+    |         si supera els 100 articles, endreçar per els diferents ordres, i funció per afegir productes al arrencar el programa.
+    |
+    |
+    |
+    |
+    |-> CarretCompra
+    |
+    |-> TiquetCompra
+    |
+    |-> Electronica
+
+CarretCompra: Amb un hashMap afegirem per crear una llista de productes de clau valor.
+
+Magatzem: Serà un array list en el que guardarem els productes.
+
+TiquetCompra

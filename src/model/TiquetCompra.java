@@ -18,7 +18,6 @@ public class TiquetCompra {
 
     }
 
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
