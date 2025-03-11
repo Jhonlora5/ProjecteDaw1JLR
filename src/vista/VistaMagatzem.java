@@ -25,7 +25,7 @@ public class VistaMagatzem {
     }
 
     /**
-     * Mostra per pantalla la llista de productes actuals del magatzem.     *
+     * Mostra per pantalla la llista de productes actuals del magatzem.
      */
     public void mostrarMagatzem() {
         try {
@@ -37,7 +37,7 @@ public class VistaMagatzem {
                 System.out.println("No hi ha productes disponibles al magatzem.");
                 return;
             }
-
+            //Iniciem el bucle per tal de printar cada producte.
             for (Producte producte : productes) {
                 System.out.println(producte);
             }
