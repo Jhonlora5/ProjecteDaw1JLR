@@ -9,7 +9,7 @@ import java.time.temporal.ChronoUnit;
  * la variable dataCaducitat, on intentarem fer el calcùl de la forma que diu l'exercici.
  */
 public class Alimentacio extends Producte {
-    //Data que conte la data de caducitat del producte.
+    //Data que conté la data de caducitat del producte.
     private LocalDate dataCaducitat;
 
     /**
