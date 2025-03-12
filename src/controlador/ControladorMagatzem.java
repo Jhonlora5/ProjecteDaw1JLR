@@ -23,6 +23,10 @@ public class ControladorMagatzem {
         this.magatzem = magatzem;
     }
 
+    public Magatzem getMagatzem() {
+        return this.magatzem;
+    }
+
     /**
      * Afegeix un producte al magatzem
      * Aquest metode crida al model per afegir el producte.

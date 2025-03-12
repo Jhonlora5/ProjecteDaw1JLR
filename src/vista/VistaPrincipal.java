@@ -99,9 +99,8 @@ public class VistaPrincipal {
      */
     private void mostrarMenuGestio() {
         try {
-            System.out.println("\n--- Gestió del Magatzem ---");
-            // Invoca la vista del magatzem per mostrar els productes actuals
-            new VistaMagatzem(controladorMagatzem).mostrarMagatzem();
+            // Crida al submenú de gestió implementat a VistaMagatzem.
+            new VistaMagatzem(controladorMagatzem).mostrarSubmenuGestio();
         } catch (Exception e) {
             System.out.println("Error en el menú de gestió: " + e.getMessage());
         }
