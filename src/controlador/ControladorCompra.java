@@ -23,7 +23,7 @@ public class ControladorCompra {
      * @param carret Instancia de CarretCompra.
      * @param historialTiquets Llista d'historial de tiquets.
      */
-    public ControladorCompra(CarretCompra carret, List<TiquetCompra> historialTiquets) {
+    public ControladorCompra(CarretCompra carret, List<TiquetCompra> historialTiquets, Magatzem magatzem) {
         this.carret = carret;
         this.historialTiquets = historialTiquets;
         this.magatzem = magatzem;

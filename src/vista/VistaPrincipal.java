@@ -3,15 +3,21 @@ package vista;
 import controlador.ControladorCarret;
 import controlador.ControladorMagatzem;
 import controlador.ControladorCompra;
-import model.Producte;
 
+import model.Alimentacio;
+import model.Electronica;
+import model.Producte;
+import model.Textil;
+import model.Magatzem;
+
+import java.time.LocalDate;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
  * Classe principal de la vista que mostra el menú d'opcions.
  * Aquesta classe és l'element d'interacció amb l'usuari que rep les peticions
- * i la transmet als respectius controladors(pont entre la vista i model).
+ * i la transmet als respectius controladors (pont entre la vista i model).
  */
 public class VistaPrincipal {
     private ControladorCarret controladorCarret;
@@ -54,6 +60,7 @@ public class VistaPrincipal {
                 System.out.print("Escull una opció: ");
                 // Llegim l'opció de l'usuari, si no és un número, es capturarà amb InputMismatchException.
                 opcio = scanner.nextInt();
+
                 // Neteja el buffer
                 scanner.nextLine();
                 //Segons la opcio triada, es crida el mètode corresponent.
@@ -88,23 +95,99 @@ public class VistaPrincipal {
 
     /**
      * Mostra el menú de gestió del magatzem i compres.
-     * Actualment mostra un missatge informatiu fins la implementació de les opcions a mostrar.
+     * Mostra tot el que conté el magatzem.
      */
     private void mostrarMenuGestio() {
-        System.out.println("(Gestió del magatzem i compres - Opcions no implementades encara)");
+        try {
+            System.out.println("\n--- Gestió del Magatzem ---");
+            // Invoca la vista del magatzem per mostrar els productes actuals
+            new VistaMagatzem(controladorMagatzem).mostrarMagatzem();
+        } catch (Exception e) {
+            System.out.println("Error en el menú de gestió: " + e.getMessage());
+        }
     }
 
     /**
      * Mostra el menú per introduir productes
      */
     private void mostrarMenuIntroduirProducte() {
-        System.out.println("(Introducció de productes - Opcions no implementades encara)");
+        try {
+            System.out.println("\n--- Introduir Producte ---");
+            System.out.println("Tria el tipus de producte a afegir:");
+            System.out.println("1. Alimentació");
+            System.out.println("2. Tèxtil");
+            System.out.println("3. Electrònica");
+            System.out.print("Opció: ");
+            int tipus = scanner.nextInt();
+            scanner.nextLine(); // Neteja el buffer
+
+            switch (tipus) {
+                case 1:
+                    // Llegim dades per a un producte d'alimentació
+                    System.out.print("Introdueix el nom: ");
+                    String nom = scanner.nextLine();
+                    System.out.print("Introdueix el preu: ");
+                    double preu = scanner.nextDouble();
+                    scanner.nextLine();
+                    System.out.print("Introdueix el codi de barres: ");
+                    String codi = scanner.nextLine();
+                    System.out.print("Introdueix la data de caducitat (YYYY-MM-DD): ");
+                    String dataStr = scanner.nextLine();
+                    LocalDate dataCad = LocalDate.parse(dataStr);
+                    Alimentacio aliment = new Alimentacio(nom, preu, codi, dataCad);
+                    controladorMagatzem.afegirProducteAlMagatzem(aliment);
+                    System.out.println("Producte d'alimentació afegit correctament.");
+                    break;
+                case 2:
+                    // Llegim dades per a un producte tèxtil
+                    System.out.print("Introdueix el nom: ");
+                    nom = scanner.nextLine();
+                    System.out.print("Introdueix el preu: ");
+                    preu = scanner.nextDouble();
+                    scanner.nextLine();
+                    System.out.print("Introdueix el codi de barres: ");
+                    codi = scanner.nextLine();
+                    System.out.print("Introdueix la composició tèxtil: ");
+                    String composicio = scanner.nextLine();
+                    Textil textil = new Textil(nom, preu, codi, composicio);
+                    controladorMagatzem.afegirProducteAlMagatzem(textil);
+                    System.out.println("Producte tèxtil afegit correctament.");
+                    break;
+                case 3:
+                    // Llegim dades per a un producte electrònic
+                    System.out.print("Introdueix el nom: ");
+                    nom = scanner.nextLine();
+                    System.out.print("Introdueix el preu: ");
+                    preu = scanner.nextDouble();
+                    scanner.nextLine();
+                    System.out.print("Introdueix el codi de barres: ");
+                    codi = scanner.nextLine();
+                    System.out.print("Introdueix els dies de garantia: ");
+                    int diesGarantia = scanner.nextInt();
+                    scanner.nextLine();
+                    Electronica electr = new Electronica(nom, preu, codi, diesGarantia);
+                    controladorMagatzem.afegirProducteAlMagatzem(electr);
+                    System.out.println("Producte electrònic afegit correctament.");
+                    break;
+                default:
+                    System.out.println("Opció no vàlida.");
+            }
+        } catch (Exception e) {
+            System.out.println("Error en introduir el producte: " + e.getMessage());
+            scanner.nextLine(); // Neteja el buffer en cas d'error
+        }
     }
 
     /**
      * Mostra el contingut del carro de la compra
      */
     private void mostrarCarroCompra() {
-        System.out.println("(Mostrar carro de la compra - Opcions no implementades encara)");
+        try {
+            // Crida la vista del carret i mostra el seu contingut
+            new VistaCarret(controladorCarret).mostrarCarroCompraAleatori();
+        } catch (Exception e) {
+            System.out.println("Error en mostrar el carro de la compra: " + e.getMessage());
+
+        }
     }
 }

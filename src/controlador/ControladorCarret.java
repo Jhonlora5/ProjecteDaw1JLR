@@ -10,7 +10,7 @@ import java.util.Map;
 
 /**
  * Controlador per gestionar el carret de la compra.
- * Aquesta classe actua com a intermediari entre la vista i el model.
+ * Aquesta classe actua com a intermediari entre la vista i el model
  * gestionant la lògica per afegir productes al carret, mostrar-ne el contingut i buidar-lo.
  */
 public class ControladorCarret {
@@ -21,10 +21,19 @@ public class ControladorCarret {
      * Constructor del controlador del carret.
      * @param carret instància del carret de la compra.
      */
-    public ControladorCarret(CarretCompra carret) {
+    public ControladorCarret(CarretCompra carret, Magatzem magatzem) {
         this.carret = carret;
         this.magatzem = magatzem;
     }
+
+
+    public Map<String, Integer> getProductesMap() {
+        return carret.getProductes();
+    }
+    public Magatzem getMagatzem() {
+        return this.magatzem;
+    }
+
 
     /**
      * Afegeix un producte al carret.
