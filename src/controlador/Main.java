@@ -39,9 +39,6 @@ public class Main {
             // El ControladorCompra s'encarrega de finalitzar la compra i generar tiquets.
             ControladorCompra controladorCompra = new ControladorCompra(carret, historialTiquets, magatzem);
 
-
-
-
             // 5. Inicialitzem la vista principal, passant-li els controladors creats.
             VistaPrincipal vista = new VistaPrincipal(controladorCarret, controladorMagatzem, controladorCompra);
             // 6. Mostrem el menu principal. A partir d'aquí, la vista s'encarrega de la interacció amb l'usuari.

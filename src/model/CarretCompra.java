@@ -9,7 +9,7 @@ import java.util.Map;
  * Classe per gestionar el carret de la compra
  */
 public class CarretCompra {
-    //Map encarregat de asociar el codi de barres amb el producte.
+    //Map encarregat d'associar el codi de barres amb el producte.
     private Map<String, Integer> productes;
 
     /**

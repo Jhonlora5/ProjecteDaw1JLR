@@ -28,57 +28,29 @@ public class VistaCarret {
     /**
      * Mostra el contingut del carret per pantalla.
      * Aquest mètode recupera la llista de productes mitjançant el controlador,
-     * mostra cada producte calcula el total de la compra.
+     * mostra cada producte i calcula el total de la compra.
      */
     public void mostrarCarroCompraAleatori() {
         try {
-            // Obtenim el mapa de productes actual.
-            Map<String, Integer> mapaProductes = controladorCarret.getProductesMap();
-            System.out.println("Nombre d'entrades al carret: " + mapaProductes.size());
-
-            // Si el carret està buit, afegim alguns productes per prova.
-            if (mapaProductes.isEmpty()) {
-                System.out.println("El carret està buit. S'estan afegint productes per prova...");
-                Magatzem magatzem = controladorCarret.getMagatzem();
-                List<Producte> totsElsProductes = magatzem.getTotsElsProductes();
-                if (!totsElsProductes.isEmpty()) {
-                    // Afegeix el primer producte amb 2 unitats.
-                    controladorCarret.afegirProducteAlCarret(totsElsProductes.get(0), 2);
-                    // Si hi ha almenys un segon producte, afegeix 1 unitat.
-                    if (totsElsProductes.size() > 1) {
-                        controladorCarret.afegirProducteAlCarret(totsElsProductes.get(1), 1);
-                    }
-                }
-                // Torna a obtenir el mapa de productes després d'afegir.
-                mapaProductes = controladorCarret.getProductesMap();
-                System.out.println("Nombre d'entrades al carret després d'afegir per prova: " + mapaProductes.size());
+            //Cridem al magatzem a traves del controlador del carret de compra.
+            Magatzem magatzem = controladorCarret.getMagatzem();
+            // obtenim tots els productes de la funcio corresponent de Magatzem.
+            List<Producte> totsElsProductes = magatzem.getTotsElsProductes();
+            //Per si de cas no tenim res al magatzem posarem les línies corresponents per tal de printar.
+            if (totsElsProductes.isEmpty()) {
+                System.out.println("El magatzem està buit. No hi ha productes per mostrar.");
+                return;
             }
 
-            // Creem una llista on cada producte apareix tantes vegades com la seva quantitat.
-            List<Producte> llistaCompleta = new ArrayList<>();
-            for (Map.Entry<String, Integer> entry : mapaProductes.entrySet()) {
-                String codiBarres = entry.getKey();
-                int quantitat = entry.getValue();
-                // Recuperem el producte real a partir del codi.
-                Producte producte = controladorCarret.getMagatzem().getProductePerCodi(codiBarres);
-                for (int i = 0; i < quantitat; i++) {
-                    llistaCompleta.add(producte);
-                }
-            }
-            System.out.println("Nombre d'entrades al carret després d'afegir per prova: " + mapaProductes.size());
-            // Barrejem la llista de manera aleatòria.
-            Collections.shuffle(llistaCompleta);
+            //Barrejar la llista aleatòriament amb un collections shuffle.
+            Collections.shuffle(totsElsProductes);
 
-            // Seleccionem, com a màxim, 10 productes.
-            List<Producte> seleccio;
-            if (llistaCompleta.size() > 10) {
-                seleccio = llistaCompleta.subList(0, 10);
-            } else {
-                seleccio = llistaCompleta;
-            }
+            // Seleccionar com a màxim 10 productes
+            int limit = Math.min(10, totsElsProductes.size());
+            List<Producte> seleccio = totsElsProductes.subList(0, limit);
 
-            // Mostrem la selecció per pantalla.
-            System.out.println("\n===== Contingut Aleatori del Carret (10 productes) =====");
+            // Mostrar els productes seleccionats
+            System.out.println("\n===== Contingut Aleatori del Magatzem (10 productes) =====");
             double total = 0.0;
             for (Producte p : seleccio) {
                 System.out.println("- " + p);
@@ -87,7 +59,7 @@ public class VistaCarret {
             System.out.println("\nTotal parcial de la selecció: " + String.format("%.2f", total) + " €");
             System.out.println("========================================================");
         } catch (Exception e) {
-            System.out.println("Error en mostrar el contingut del carret aleatori: " + e.getMessage());
+            System.out.println("Error en mostrar el contingut aleatori del magatzem: " + e.getMessage());
         }
     }
 }

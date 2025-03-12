@@ -32,7 +32,7 @@ public class Magatzem {
     }
 
     /**
-     * Afegeix un producte al magatzem si no es supera el límit global ni el tipus.
+     * Afegeix un producte al magatzem si no és supera el límit global ni el tipus.
      * @param producte el producte del que es vol entrar.
      * @return
      */
