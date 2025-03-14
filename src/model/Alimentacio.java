@@ -30,6 +30,7 @@ public class Alimentacio extends Producte {
     }
     //Creem el setter corresponent per si de cas en algun moment s'ha de canviar la data corresponent.
     public void setDataCaducitat(LocalDate dataCaducitat) {
+
         this.dataCaducitat = dataCaducitat;
     }
 

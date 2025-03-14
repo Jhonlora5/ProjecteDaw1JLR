@@ -31,28 +31,6 @@ public class VistaMagatzem {
     }
 
     /**
-     * Mostra per pantalla la llista de productes actuals del magatzem.
-     */
-    public void mostrarMagatzem() {
-        try {
-            List<Producte> productes = controladorMagatzem.mostrarMagatzem();
-            System.out.println("\n--- Productes al Magatzem ---");
-
-            // Si la llista és null o buida, informem a l'usuari.
-            if (productes == null || productes.isEmpty()) {
-                System.out.println("No hi ha productes disponibles al magatzem.");
-                return;
-            }
-            //Iniciem el bucle per tal de printar cada producte.
-            for (Producte producte : productes) {
-                System.out.println(producte);
-            }
-        }catch (Exception e){
-            // Captura qualsevol error durant la recuperació de la llista de productes.
-            System.out.println("Error al mostrar els productes del magatzem a la classe VistaMagatzem: " + e.getMessage());
-        }
-    }
-    /**
      * Mostra el submenú de gestió del magatzem i compres.
      * Aquest mètode permet:
      *  1. Ordenar l'alimentació per ordre de caducitat.

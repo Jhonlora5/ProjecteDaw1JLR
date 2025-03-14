@@ -22,6 +22,7 @@ public class VistaCarret {
      * @param controladorCarret controladorCarret Instància de ControladorCarret
      */
     public VistaCarret(ControladorCarret controladorCarret) {
+
         this.controladorCarret = controladorCarret;
     }
 
@@ -34,7 +35,7 @@ public class VistaCarret {
         try {
             //Cridem al magatzem a traves del controlador del carret de compra.
             Magatzem magatzem = controladorCarret.getMagatzem();
-            // obtenim tots els productes de la funcio corresponent de Magatzem.
+            // obtenim tots els productes de la funció corresponent de Magatzem.
             List<Producte> totsElsProductes = magatzem.getTotsElsProductes();
             //Per si de cas no tenim res al magatzem posarem les línies corresponents per tal de printar.
             if (totsElsProductes.isEmpty()) {
@@ -59,7 +60,7 @@ public class VistaCarret {
             System.out.println("\nTotal parcial de la selecció: " + String.format("%.2f", total) + " €");
             System.out.println("========================================================");
         } catch (Exception e) {
-            System.out.println("Error en mostrar el contingut aleatori del magatzem: " + e.getMessage());
+            System.out.println("Error en mostrar el contingut aleatori del magatzem a la classe VistaCarret: " + e.getMessage());
         }
     }
 }

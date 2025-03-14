@@ -16,6 +16,7 @@ public class CarretCompra {
      * Constructor per inicialitzar el carret de la compra
      */
     public CarretCompra() {
+
         this.productes = new HashMap<>();
     }
 

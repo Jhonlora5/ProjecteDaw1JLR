@@ -13,7 +13,8 @@ import java.util.List;
  * rebent peticions de la vista i cridant els mètodes del model per afegir o recuperar productes.
  */
 public class ControladorMagatzem {
-    private Magatzem magatzem; //Instancia de magatzem on es gestionen els productes
+    //Instància de magatzem on es gestionen els productes
+    private Magatzem magatzem;
 
     /**
      * Constructor del controlador del magatzem.

@@ -23,10 +23,12 @@ public class Electronica extends Producte {
     }
     //Retorna els dies de garantia del producte.
     public int getDiesGarantia() {
+
         return diesGarantia;
     }
     //Guarda si escau els dies de garantía del producte.
     public void setDiesGarantia(int diesGarantia) {
+
         this.diesGarantia = diesGarantia;
     }
 

@@ -18,6 +18,7 @@ ControladorCompra
 
             Funcions:
             Encarregada de generar el tiquet amb els productes corresponents i la suma total.
+            Funció encarregada de guardar l'historial de tiquets a un fitxer i recuperar-lo per mostrar-lo a VistaCompra.
 
 ControladorMagatzem
     Classe publica ControladorMagatzem:
@@ -70,4 +71,4 @@ VistaCompra:
 Aquesta vista mostra un menu per tal de comprar els diferents tipus de materials.
 
 VistaCarret:
-Aquesta vista mostra els articles, introduits al carret amb el total.
+Aquesta vista mostra els articles, introduïts al carret amb el total.

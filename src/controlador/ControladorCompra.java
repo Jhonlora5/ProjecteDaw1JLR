@@ -57,7 +57,8 @@ public class ControladorCompra {
         double total = 0.0;
         try {
             // Iterem sobre el mapa de productes del carret.
-            for (Map.Entry<String, Integer> entry : carret.getProductes().entrySet()) { // Canviat carretCompra per carret
+            // Canviat carretCompra per carret
+            for (Map.Entry<String, Integer> entry : carret.getProductes().entrySet()) {
                 String codiBarres = entry.getKey();
                 int quantitat = entry.getValue();
 
