@@ -5,6 +5,10 @@ import model.TiquetCompra;
 import model.Producte;
 import model.Magatzem;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 /**
@@ -31,7 +35,7 @@ public class ControladorCompra {
 
     /**
      * Finalitza la compra i genera un tiquet utilitzant el magatzem ja definit.
-     * Aquest mètode crida el mètode amb parametre passant-hi l'objecte magatzem.
+     * Aquest mètode crida el mètode amb paràmetre passant-hi l'objecte magatzem.
      *
      * @return tiquet de la copra generat.
      */
@@ -41,10 +45,10 @@ public class ControladorCompra {
 
     /**
      * Finalitza la compra i genera un tiquet.
-     * Aquest metode recorre tots els productes del carret
-     * (Representts per un Map de codi de barres i quantitat),
+     * Aquest mètode recorre tots els productes del carret
+     * (Representats per un Map de codi de barres i quantitat),
      * calcula el total de la compra multiplicant el preu de cada
-     * producte per la seva quantitat (recuperart des del magatzem),
+     * producte per la seva quantitat (recuperat des del magatzem),
      * crea un tiquet de compra amb els productes i el total.
      * @param magatzem magatzem on es troben els productes
      * @return el tiquet de compra generat
@@ -79,5 +83,27 @@ public class ControladorCompra {
         carret.buidarCarret();
         return tiquet;
 
+    }
+    /**
+     * Guarda l'historial de tiquets en un fitxer de text de forma seqüencial.
+     * Cada tiquet s'afegeix al final del fitxer, utilitzant la notació "Tiquet X:".
+     *
+     * @param nomFitxer El nom del fitxer on es guardarà l'historial.
+     */
+    public void guardarHistorialTiquetsAFitxer(String nomFitxer) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomFitxer, true))) {
+            int count = 1;
+            for (TiquetCompra tiquet : historialTiquets) {
+                writer.write("Tiquet " + count + ":\n");
+                writer.write(tiquet.toString());
+                writer.write("\n--------------------\n");
+                count++;
+            }
+            System.out.println("Historial de tiquets guardat correctament al fitxer: " + nomFitxer);
+        } catch (FileNotFoundException e) {
+            System.out.println("Fitxer no trobat: " + e.getMessage());
+        } catch (IOException e) {
+            System.out.println("Error d'entrada/sortida: " + e.getMessage());
+        }
     }
 }

@@ -26,14 +26,9 @@ public class ControladorCarret {
         this.magatzem = magatzem;
     }
 
-
-    public Map<String, Integer> getProductesMap() {
-        return carret.getProductes();
-    }
     public Magatzem getMagatzem() {
         return this.magatzem;
     }
-
 
     /**
      * Afegeix un producte al carret.

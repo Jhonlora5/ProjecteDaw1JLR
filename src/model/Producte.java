@@ -29,26 +29,32 @@ public abstract class Producte {
     // Getter i setters corresponents.
     // retorna el nom del producte.
     public String getNom() {
+
         return nom;
     }
     // retorna preu del producte
     public double getPreu() {
+
         return preu;
     }
     // retorna el codi de barres del producte.
     public String getCodiBarres() {
+
         return codiBarres;
     }
     //Actualitza el nom del producte.
     public void setNom(String nom) {
+
         this.nom = nom;
     }
     //Actualitza el preu del producte.
     public void setPreu(double preu) {
+
         this.preu = preu;
     }
     //Actualitza el codi de barres del producte.
     public void setCodiBarres(String codiBarres) {
+
         this.codiBarres = codiBarres;
     }
     //Calcula cridant a la funció corresponent el calcúl del preu.

@@ -1,0 +1,6 @@
+Tiquet 1:
+Data: 2025-03-14
+Productes:
+Total a pagar: 0,00€
+
+--------------------

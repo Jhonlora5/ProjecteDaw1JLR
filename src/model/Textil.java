@@ -21,10 +21,12 @@ public class Textil extends Producte {
     }
     //Realitzem el getter corresponent, retorna la composició del teixit.
     public String getComposicioTextil() {
+
         return composicioTextil;
     }
     //Creem el setter corresponent per si en algun moment s'ha de rectificar la composició.
     public void setComposicioTextil(String composicioTextil) {
+
         this.composicioTextil = composicioTextil;
     }
 

@@ -100,7 +100,7 @@ public class VistaPrincipal {
     private void mostrarMenuGestio() {
         try {
             // Crida al submenú de gestió implementat a VistaMagatzem.
-            new VistaMagatzem(controladorMagatzem).mostrarSubmenuGestio();
+            new VistaMagatzem(controladorMagatzem,controladorCompra).mostrarSubmenuGestio();
         } catch (Exception e) {
             System.out.println("Error en el menú de gestió: " + e.getMessage());
         }

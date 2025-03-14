@@ -1,9 +1,11 @@
 package vista;
 
 import controlador.ControladorMagatzem;
+import controlador.ControladorCompra;
 import model.Alimentacio;
 import model.Producte;
 import model.Textil;
+import model.Magatzem;
 
 import java.util.List;
 import java.util.Scanner;
@@ -16,14 +18,16 @@ import java.util.Scanner;
 public class VistaMagatzem {
     //Controlador que gestiona els productes del magatzem.
     private ControladorMagatzem controladorMagatzem;
+    private ControladorCompra controladorCompra;
 
     /**
      * Constructor de la classe VistaMagatzem.
      *
      * @param controladorMagatzem Instància de ControladorMagatzem.
      */
-    public VistaMagatzem(ControladorMagatzem controladorMagatzem) {
+    public VistaMagatzem(ControladorMagatzem controladorMagatzem, ControladorCompra controladorCompra) {
         this.controladorMagatzem = controladorMagatzem;
+        this.controladorCompra = controladorCompra;
     }
 
     /**
@@ -65,6 +69,7 @@ public class VistaMagatzem {
                 System.out.println("1. Ordenar alimentació per ordre de caducitat");
                 System.out.println("2. Ordenar productes tèxtils per composició");
                 System.out.println("3. Cercar producte per codi de barres");
+                System.out.println("4. Guardar historial de tiquets a fitxer");
                 System.out.println("0. Tornar al menú principal");
                 System.out.print("Escull una opció: ");
                 opcio = scanner.nextInt();
@@ -105,6 +110,10 @@ public class VistaMagatzem {
                         } else {
                             System.out.println("No s'ha trobat cap producte amb aquest codi de barres.");
                         }
+                        break;
+                    case 4:
+                        // Invoca el mètode per guardar l'historial de tiquets en un fitxer
+                        controladorCompra.guardarHistorialTiquetsAFitxer("historialTiquets.txt");
                         break;
                     case 0:
                         System.out.println("Tornant al menú principal...");
