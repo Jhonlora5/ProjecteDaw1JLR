@@ -51,7 +51,7 @@ public class VistaMagatzem {
                 System.out.println("0. Tornar al menú principal");
                 System.out.print("Escull una opció: ");
                 opcio = scanner.nextInt();
-                scanner.nextLine(); // Neteja el buffer
+                scanner.nextLine();
 
                 switch (opcio) {
                     case 1:

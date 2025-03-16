@@ -21,16 +21,7 @@ public class Electronica extends Producte {
         super(nom, preu, codiBarres);
         this.diesGarantia = diesGarantia;
     }
-    //Retorna els dies de garantia del producte.
-    public int getDiesGarantia() {
 
-        return diesGarantia;
-    }
-    //Guarda si escau els dies de garantía del producte.
-    public void setDiesGarantia(int diesGarantia) {
-
-        this.diesGarantia = diesGarantia;
-    }
 
     /**
      * Calcula el preu final del producte electronic amb els dies de garantía que ens queden.

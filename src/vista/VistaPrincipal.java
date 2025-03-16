@@ -110,71 +110,80 @@ public class VistaPrincipal {
      * Mostra el menú per introduir productes
      */
     private void mostrarMenuIntroduirProducte() {
-        try {
-            System.out.println("\n--- Introduir Producte ---");
-            System.out.println("Tria el tipus de producte a afegir:");
-            System.out.println("1. Alimentació");
-            System.out.println("2. Tèxtil");
-            System.out.println("3. Electrònica");
-            System.out.print("Opció: ");
-            int tipus = scanner.nextInt();
-            scanner.nextLine(); // Neteja el buffer
+        int tipus; // Variable per controlar el bucle
 
-            switch (tipus) {
-                case 1:
-                    // Llegim dades per a un producte d'alimentació
-                    System.out.print("Introdueix el nom: ");
-                    String nom = scanner.nextLine();
-                    System.out.print("Introdueix el preu: ");
-                    double preu = scanner.nextDouble();
-                    scanner.nextLine();
-                    System.out.print("Introdueix el codi de barres: ");
-                    String codi = scanner.nextLine();
-                    System.out.print("Introdueix la data de caducitat (YYYY-MM-DD): ");
-                    String dataStr = scanner.nextLine();
-                    LocalDate dataCad = LocalDate.parse(dataStr);
-                    Alimentacio aliment = new Alimentacio(nom, preu, codi, dataCad);
-                    controladorMagatzem.afegirProducteAlMagatzem(aliment);
-                    System.out.println("Producte d'alimentació afegit correctament.");
-                    break;
-                case 2:
-                    // Llegim dades per a un producte tèxtil
-                    System.out.print("Introdueix el nom: ");
-                    nom = scanner.nextLine();
-                    System.out.print("Introdueix el preu: ");
-                    preu = scanner.nextDouble();
-                    scanner.nextLine();
-                    System.out.print("Introdueix el codi de barres: ");
-                    codi = scanner.nextLine();
-                    System.out.print("Introdueix la composició tèxtil: ");
-                    String composicio = scanner.nextLine();
-                    Textil textil = new Textil(nom, preu, codi, composicio);
-                    controladorMagatzem.afegirProducteAlMagatzem(textil);
-                    System.out.println("Producte tèxtil afegit correctament.");
-                    break;
-                case 3:
-                    // Llegim dades per a un producte electrònic
-                    System.out.print("Introdueix el nom: ");
-                    nom = scanner.nextLine();
-                    System.out.print("Introdueix el preu: ");
-                    preu = scanner.nextDouble();
-                    scanner.nextLine();
-                    System.out.print("Introdueix el codi de barres: ");
-                    codi = scanner.nextLine();
-                    System.out.print("Introdueix els dies de garantia: ");
-                    int diesGarantia = scanner.nextInt();
-                    scanner.nextLine();
-                    Electronica electr = new Electronica(nom, preu, codi, diesGarantia);
-                    controladorMagatzem.afegirProducteAlMagatzem(electr);
-                    System.out.println("Producte electrònic afegit correctament.");
-                    break;
-                default:
-                    System.out.println("Opció no vàlida.");
+        do {
+            try {
+                System.out.println("\n--- Introduir Producte ---");
+                System.out.println("Tria el tipus de producte a afegir:");
+                System.out.println("1. Alimentació");
+                System.out.println("2. Tèxtil");
+                System.out.println("3. Electrònica");
+                System.out.println("0. Tornar al menú principal");
+                System.out.print("Opció: ");
+                tipus = scanner.nextInt();
+                scanner.nextLine(); // Neteja el buffer
+
+                switch (tipus) {
+                    case 1:
+                        // Llegim dades per a un producte d'alimentació
+                        System.out.print("Introdueix el nom: ");
+                        String nom = scanner.nextLine();
+                        System.out.print("Introdueix el preu: ");
+                        double preu = scanner.nextDouble();
+                        scanner.nextLine();
+                        System.out.print("Introdueix el codi de barres: ");
+                        String codi = scanner.nextLine();
+                        System.out.print("Introdueix la data de caducitat (YYYY-MM-DD): ");
+                        String dataStr = scanner.nextLine();
+                        LocalDate dataCad = LocalDate.parse(dataStr);
+                        Alimentacio aliment = new Alimentacio(nom, preu, codi, dataCad);
+                        controladorMagatzem.afegirProducteAlMagatzem(aliment);
+                        System.out.println("Producte d'alimentació afegit correctament.");
+                        break;
+                    case 2:
+                        // Llegim dades per a un producte tèxtil
+                        System.out.print("Introdueix el nom: ");
+                        nom = scanner.nextLine();
+                        System.out.print("Introdueix el preu: ");
+                        preu = scanner.nextDouble();
+                        scanner.nextLine();
+                        System.out.print("Introdueix el codi de barres: ");
+                        codi = scanner.nextLine();
+                        System.out.print("Introdueix la composició tèxtil: ");
+                        String composicio = scanner.nextLine();
+                        Textil textil = new Textil(nom, preu, codi, composicio);
+                        controladorMagatzem.afegirProducteAlMagatzem(textil);
+                        System.out.println("Producte tèxtil afegit correctament.");
+                        break;
+                    case 3:
+                        // Llegim dades per a un producte electrònic
+                        System.out.print("Introdueix el nom: ");
+                        nom = scanner.nextLine();
+                        System.out.print("Introdueix el preu: ");
+                        preu = scanner.nextDouble();
+                        scanner.nextLine();
+                        System.out.print("Introdueix el codi de barres: ");
+                        codi = scanner.nextLine();
+                        System.out.print("Introdueix els dies de garantia: ");
+                        int diesGarantia = scanner.nextInt();
+                        scanner.nextLine();
+                        Electronica electr = new Electronica(nom, preu, codi, diesGarantia);
+                        controladorMagatzem.afegirProducteAlMagatzem(electr);
+                        System.out.println("Producte electrònic afegit correctament.");
+                        break;
+                    case 0:
+                        System.out.println("Tornant al menú principal...");
+                        break;
+                    default:
+                        System.out.println("Opció no vàlida. Torna-ho a intentar.");
+                }
+            } catch (Exception e) {
+                System.out.println("Error en introduir el producte: " + e.getMessage());
+                scanner.nextLine(); // Neteja el buffer en cas d'error
+                tipus = -1; // Evita que surti del menú per error
             }
-        } catch (Exception e) {
-            System.out.println("Error en introduir el producte: " + e.getMessage());
-            scanner.nextLine(); // Neteja el buffer en cas d'error
-        }
+        } while (tipus != 0); // Manté el menú obert fins que l’usuari introdueixi 0
     }
 
     /**

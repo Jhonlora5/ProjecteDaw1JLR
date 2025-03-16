@@ -15,7 +15,8 @@ import java.util.Map;
  */
 public class ControladorCarret {
     private CarretCompra carret;
-    private Magatzem magatzem; //Instància del magatzem per recuperar els productes reals
+    //Instància del magatzem per recuperar els productes reals
+    private Magatzem magatzem;
 
     /**
      * Constructor del controlador del carret.

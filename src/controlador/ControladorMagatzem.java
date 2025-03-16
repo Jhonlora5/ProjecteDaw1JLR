@@ -21,10 +21,12 @@ public class ControladorMagatzem {
      * @param magatzem Instància de la classe Magatzem.
      */
     public ControladorMagatzem(Magatzem magatzem) {
+
         this.magatzem = magatzem;
     }
 
     public Magatzem getMagatzem() {
+
         return this.magatzem;
     }
 

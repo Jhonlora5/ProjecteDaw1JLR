@@ -24,11 +24,7 @@ public class Textil extends Producte {
 
         return composicioTextil;
     }
-    //Creem el setter corresponent per si en algun moment s'ha de rectificar la composició.
-    public void setComposicioTextil(String composicioTextil) {
 
-        this.composicioTextil = composicioTextil;
-    }
 
     @Override
     public double calcularPreu() {

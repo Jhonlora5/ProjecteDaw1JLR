@@ -1,5 +1,6 @@
 package model;
 
+import excepcions.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
@@ -47,6 +48,7 @@ public class CarretCompra {
      * @return mapa de productes amb els codis de barra i les quantitats.
      */
     public Map<String, Integer> getProductes() {
+
         return productes;
     }
 

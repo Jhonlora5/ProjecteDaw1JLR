@@ -8,7 +8,7 @@ import java.time.temporal.ChronoUnit;
  * Per l'alimentació fem un extend de producte on afegirem a les variables que ja tenim a la classe pare,
  * la variable dataCaducitat, on intentarem fer el calcùl de la forma que diu l'exercici.
  */
-public class Alimentacio extends Producte {
+public class Alimentacio extends Producte implements Comparable<Alimentacio>{
     //Data que conté la data de caducitat del producte.
     private LocalDate dataCaducitat;
 

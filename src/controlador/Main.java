@@ -19,18 +19,18 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         try {
-            // 1. Creem una instància de Magatzem i el nou carretcompra.
+            //Creem una instància de Magatzem i el nou carretcompra.
             Magatzem magatzem = new Magatzem();
             // Cridem a la classe encarregada d'afegir productes.
             magatzem.inicialitzarProductes();
 
-            //2. Creem una instància del carret de la compra.
+            //Creem una instància del carret de la compra.
             CarretCompra carret = new CarretCompra();
 
-            //3. Creem una llista per emmagatzemar els tiquets de compra generats.
+            // Creem una llista per emmagatzemar els tiquets de compra generats.
             List<TiquetCompra> historialTiquets = new ArrayList<>();
 
-            // 4.  Inicialitzem els controladors amb les instàncies corresponents
+            // Inicialitzem els controladors amb les instàncies corresponents
             // El ControladorCarret gestiona el carret de la compra.
             ControladorCarret controladorCarret = new ControladorCarret(carret, magatzem);
 
@@ -39,9 +39,9 @@ public class Main {
             // El ControladorCompra s'encarrega de finalitzar la compra i generar tiquets.
             ControladorCompra controladorCompra = new ControladorCompra(carret, historialTiquets, magatzem);
 
-            // 5. Inicialitzem la vista principal, passant-li els controladors creats.
+            // Inicialitzem la vista principal, passant-li els controladors creats.
             VistaPrincipal vista = new VistaPrincipal(controladorCarret, controladorMagatzem, controladorCompra);
-            // 6. Mostrem el menu principal. A partir d'aquí, la vista s'encarrega de la interacció amb l'usuari.
+            // Mostrem el menu principal. A partir d'aquí, la vista s'encarrega de la interacció amb l'usuari.
             vista.mostrarMenu();
 
         }catch(Exception e) {

@@ -18,9 +18,11 @@ import java.util.Map;
  * i buidar el carret. Actua com a intermediari entre la vista i el model.
  */
 public class ControladorCompra {
-    private CarretCompra carret; // El carret de la compra
+    //El carret de la compra
+    private CarretCompra carret;
     private List<TiquetCompra> historialTiquets; // Historial dels tiquets generats.
-    private Magatzem magatzem; //El magatzem on es troben els productes.
+    //El magatzem on es troben els productes.
+    private Magatzem magatzem;
 
     /**
      * Constructor del carret de la compra.
@@ -32,6 +34,7 @@ public class ControladorCompra {
         this.historialTiquets = historialTiquets;
         this.magatzem = magatzem;
     }
+
 
     /**
      * Finalitza la compra i genera un tiquet utilitzant el magatzem ja definit.
